@@ -134,7 +134,7 @@ function UserActivity() {
     }, [updateTodo,deleteTodo]); // Empty dependency array to fetch data only once on component mount
 
     return (
-        <div>
+        <div className='center-items'>
             <h2>User Details</h2>
             <p>Username: {username}</p>
             <p>Full Name: {fullname}</p>
@@ -152,9 +152,9 @@ function UserActivity() {
                     </ul>
                 </>
             )}
-            <form action="POST">
+            <form action="POST" className='description'>
                 To add todo, enter description:
-                <input type="text" placeholder='Enter your description' value={desc} onChange={(e)=>{
+                <textarea type="text" placeholder='Enter your description' value={desc} onChange={(e)=>{
                     setDesc(e.target.value)
                 }}/>
                 <button onClick={(e)=>{

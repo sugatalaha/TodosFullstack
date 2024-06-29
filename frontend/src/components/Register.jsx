@@ -40,7 +40,7 @@ function Register() {
             })
     }
   return (
-    <div>
+    <div className='center-box content'>
       <form action="POST">
         Username:<input type="text"  id='username' value={usernmame} onChange={(event)=>{setUsername(event.target?.value)}}/>
         Email:

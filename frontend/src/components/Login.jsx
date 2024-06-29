@@ -46,7 +46,7 @@ function Login() {
         })
     }
   return (
-    <div>
+    <div className='center-box content'>
       <form action="POST">
         Username:<input type="text" value={username} onChange={(e)=>{
             setUsername(e.target.value)
@@ -67,7 +67,7 @@ function Login() {
         }
         }>Submit</button>
       </form>
-      <Link to="/update-password">Forgot Password?</Link>
+      
     </div>
   )
 }

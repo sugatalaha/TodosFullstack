@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 function Header() {
-  const liststyle={
-    "marginRight":"60px",
-  }
   const navigate=useNavigate()
   function logout(){
     const token = localStorage.getItem('accessToken')
@@ -29,22 +26,26 @@ function Header() {
   return (
     <>
       <div style={{ listStyle: "none", display: "flex", justifyContent: "space-between" }}>
-        <h1>Your personal todo app</h1>
+        <h1>Your personal todo Website</h1>
         <ul style={{display:"flex","justifyContent":"space-evenly","listStyle":"none","padding":"12px"}}>
-            <li style={liststyle}>
+            <li >
                 <Link to={'/'}>Home</Link>
             </li>
-            <li style={liststyle}>
+            <li >
                 <Link to={'/register'}>Sign up</Link>
             </li>
-            <li style={liststyle}>
+            <li >
                 <Link to={'/login'}>Login</Link>
             </li>
-            <li style={liststyle}>
+            <li>
               <Link to={'/user-activity'}>User dashboard</Link>
             </li>
+            <li>
+              <Link to="/update-password">Update password</Link>
+            </li>
+          
         </ul>
-        <button onClick={logout}>Logout</button>
+        <button onClick={logout} className='logout'>Logout</button>
      </div>
     </>
   )

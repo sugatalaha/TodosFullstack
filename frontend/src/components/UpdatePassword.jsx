@@ -7,6 +7,12 @@ function UpdatePassword() {
     const navigate=useNavigate();
     function postData(password){
         const token=localStorage.getItem("accessToken")
+        if(token===undefined){
+            console.log("Invalid")
+            alert("You are not logged in")
+            navigate('/login',{replace:true})
+            return;
+        }
         fetch("http://localhost:8000/api/v1/users/update-password",{
             method: 'POST',
             headers: {
@@ -21,16 +27,9 @@ function UpdatePassword() {
             if(response.status===200){
                 navigate('/',{replace:true})
             }
-            else if(response.status===404){
-                alert("User is not logged in")
-                navigate('/login',{replace:true})
-            }
-            else if(response.status===404){
-                alert("User is not logged in")
-                navigate('/login',{replace:true})
-            }
             else{
-                alert("Some error occured");
+                alert("User is not logged in")
+                navigate('/login',{replace:true})
             }
         })
         .catch((error)=>{
@@ -38,7 +37,7 @@ function UpdatePassword() {
         })
     }
   return (
-    <div>
+    <div className='center-box content' >
       <form action="POST">
         Enter new password:
         <input type="password" value={password1} onChange={(e)=>{
