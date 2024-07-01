@@ -31,8 +31,11 @@ function Login() {
             else if(response.status===400){
                 alert("Enter valid password");
             }
+            else if(response.status===404){
+                alert("User is not registered");
+            }
             else{
-                alert("Some error occured");
+                alert("Some error occured")
             }
         })
         .then((data)=>{
